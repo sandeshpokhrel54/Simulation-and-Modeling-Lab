@@ -4,7 +4,8 @@
 #test for random number
 
 import matplotlib.pyplot as plt
-seed = 19
+import numpy as np
+seed = 31
 P = 100
 a = 17
 b= 31
@@ -12,7 +13,7 @@ rand_num = (seed * a + b ) % P
 
 #generate 1000 random numbers in range 0 to 100
 classes = [0,0,0,0,0]
-Num_of_Obs = 1000
+Num_of_Obs = 100
 num_classes = len(classes)
 rand_list = [rand_num]
 for i in range(Num_of_Obs):
@@ -39,7 +40,11 @@ Xi = sum([(c-Ei)*(c-Ei)/Ei for c in classes])
 
 print(Xi)
 
-plt.scatter(rand_list, [0]*len(rand_list))
+print(rand_list)
+time = np.arange(len(rand_list))
+
+plt.plot(time, rand_list)
+# plt.scatter(rand_list, [0]*len(rand_list))
 plt.show()
 
 
